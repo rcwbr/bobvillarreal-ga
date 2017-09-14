@@ -1,0 +1,15 @@
+{
+  "name": "bobvillarreal-ga",
+  "version": "1.0.0",
+  "description": "Provide a public JSON API access to some Google Analytics data for bobvillarreal.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Weber",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "googleapis": "^21.3.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "ids": "ga:xxxxxxx",
+  "metrics": "ga:sessions",
+  "start-date": "2017-09-01",
+  "end-date": "today"
+}
