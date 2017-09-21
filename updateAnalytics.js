@@ -26,7 +26,7 @@ function refreshVisitorCount () {
         return
       }
       console.log(
-        'Refreshed ' +
+        'Loaded ' +
         new Date() +
         ' -- Total sessions: ' +
         response.totalsForAllResults['ga:sessions']
@@ -37,12 +37,12 @@ function refreshVisitorCount () {
 }
 
 module.exports.updateAnalyticsLoop = function (rate) {
+  console.log('Loading visitor count... ')
+  refreshVisitorCount()
   setInterval(function () {
     console.log('Refresing visitor count... ')
     refreshVisitorCount()
   }, rate * 60 * 1000)
 }
 
-module.exports.analytics = function () {
-  return analytics
-}
+module.exports.analytics = analytics
