@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 var analyticsUpdater = require('./updateAnalytics.js')
-var vistorCountRefreshRate = 1 / 4 // minutes
+var vistorCountRefreshRate = 30 // minutes
 
 analyticsUpdater.updateAnalyticsLoop(vistorCountRefreshRate)
 
