@@ -1,6 +1,7 @@
 {
   "ids": "ga:xxxxxxx",
   "metrics": "ga:sessions",
+  "dimensions": "ga:pagePathLevel1",
   "start-date": "2017-09-01",
   "end-date": "today"
 }

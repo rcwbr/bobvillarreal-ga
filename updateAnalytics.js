@@ -2,7 +2,24 @@ var google = require('googleapis')
 var key = require('./serviceAccountInfo.json')
 var analyticsRequestParams = require('./visitorCountQuery.json')
 var ga = google.analytics('v3')
-var analytics = {visitorCount: 0}
+var analytics = {
+  books: {
+    clawing: {
+      paths: [
+        '/clawing',
+        '/clawing/'
+      ],
+      visitorCount: 0
+    },
+    chronicles: {
+      paths: [
+        '/chronicles',
+        '/chronicles/'
+      ],
+      visitorCount: 0
+    }
+  }
+}
 
 var jwtClient = new google.auth.JWT(
   key.client_email,
@@ -23,6 +40,7 @@ function refreshVisitorCount () {
     ga.data.ga.get(analyticsRequestParams, null, function (err, response) {
       if (err) {
         console.log(err)
+        refreshVisitorCount()
         return
       }
       console.log(
@@ -31,7 +49,20 @@ function refreshVisitorCount () {
         ' -- Total sessions: ' +
         response.totalsForAllResults['ga:sessions']
       )
-      analytics.visitorCount = response.totalsForAllResults['ga:sessions']
+
+      for (var bookName in analytics.books) {
+        var book = analytics.books[bookName]
+        book.visitorCount = 0
+        for (var i = 0; i < book.paths.length; i++) {
+          var bookPath = book.paths[i]
+          for (var j = 0; j < response.rows.length; j++) {
+            var pathAnalytics = response.rows[j]
+            if (bookPath === pathAnalytics[0]) {
+              book.visitorCount += parseInt(pathAnalytics[1])
+            }
+          }
+        }
+      }
     })
   })
 }
