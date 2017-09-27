@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
 var analyticsUpdater = require('./updateAnalytics.js')
+var env = require('./env.js')
 var vistorCountRefreshRate = 30 // minutes
 
 analyticsUpdater.updateAnalyticsLoop(vistorCountRefreshRate)
 
 app.get('/', function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4567')
+  res.setHeader('Access-Control-Allow-Origin', env['access-control-origin'])
   res.setHeader('Access-Control-Allow-Methods', 'GET')
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
   res.setHeader('Access-Control-Allow-Credentials', false)
