@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 var analyticsUpdater = require('./updateAnalytics.js')
-var env = require('./env.js')
+var env = require('./env.json')
 var vistorCountRefreshRate = 30 // minutes
 
 analyticsUpdater.updateAnalyticsLoop(vistorCountRefreshRate)
