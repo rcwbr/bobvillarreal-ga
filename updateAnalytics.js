@@ -9,14 +9,16 @@ var analytics = {
         '/clawing',
         '/clawing/'
       ],
-      visitorCount: 0
+      visitorCount: 0,
+      originalSiteCount: 214673
     },
     chronicles: {
       paths: [
         '/chronicles',
         '/chronicles/'
       ],
-      visitorCount: 0
+      visitorCount: 0,
+      originalSiteCount: 214764
     }
   }
 }
