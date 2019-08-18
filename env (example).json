@@ -1,3 +1,5 @@
 {
-  "access-control-origin": "http://bobvillarreal.com"
+  "access-control-origin": [
+    "http://bobvillarreal.com"
+  ]
 }

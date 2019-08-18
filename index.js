@@ -7,7 +7,9 @@ var vistorCountRefreshRate = 30 // minutes
 analyticsUpdater.updateAnalyticsLoop(vistorCountRefreshRate)
 
 app.get('/', function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', env['access-control-origin'])
+  if (env['access-control-origin'].includes(req.headers.origin)) {
+    res.setHeader('Access-Control-Allow-Origin', req.headers.origin)
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET')
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
   res.setHeader('Access-Control-Allow-Credentials', false)
