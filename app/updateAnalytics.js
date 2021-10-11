@@ -19,6 +19,14 @@ var analytics = {
       ],
       visitorCount: 0,
       originalSiteCount: 214764
+    },
+    prelude: {
+      paths: [
+        '/prelude',
+        '/prelude/'
+      ],
+      visitorCount: 0,
+      originalSiteCount: 0
     }
   }
 }

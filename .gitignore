@@ -2,4 +2,6 @@ node_modules
 serviceAccountInfo.json
 visitorCountQuery.json
 env.json
+server.cert
+server.key
 *.log
